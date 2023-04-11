@@ -1,0 +1,29 @@
+import turtle
+
+turtle.bgcolor("DarkSeaGreen3")
+turtle.setup(700, 500)
+
+smallblock = turtle.Turtle()
+smallblock.shape("square")
+smallblock.shapesize(1,1)
+smallblock.up()
+smallblock.speed(0)
+smallblock.color("DarkSlateGray4")
+
+bigblock = turtle.Turtle()
+bigblock.shape("square")
+bigblock.shapesize(2,2)
+bigblock.color("DarkSlateGray3")
+bigblock.up()
+bigblock.speed(0)
+bigblock.goto(-300,0)
+
+bigspeed = 1
+smallspeed = 0
+mass = 100
+while smallspeed >= 0 and smallspeed < bigspeed:
+    bigblock.goto(bigblock.xcor()+bigspeed,0)
+    if smallblock.distance(bigblock) < 50:
+        smallspeed=0 #에너지 보존 및 운동량 보존
+    if smallblock.xcor() > 300:
+        smallblock *= -1
